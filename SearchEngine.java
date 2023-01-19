@@ -9,7 +9,7 @@ class Handler implements URLHandler {
 
     public String handleRequest(URI url) {
         if (url.getPath().equals("/")) {
-            return String.format("%s's Number: %d", System.getProperty("user.name"), num);
+            return String.format("Welcome, %s", System.getProperty("user.name"));
         } 
         else if (url.getPath().contains("/add")) {
             String[] parameters = url.getQuery().split("=");
@@ -31,9 +31,7 @@ class Handler implements URLHandler {
                 return String.format("The following words contain %s: \n", parameters[1]) + hasSubstring;
             }
         }
-        else {
-            return "404 Not Found!";
-        }
+        return "404 Not Found!";
     }
 }
 
