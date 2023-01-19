@@ -25,7 +25,12 @@ class Handler implements URLHandler {
                 String hasSubstring = "";
                 for (String s : stringList) {
                     if (s.contains(parameters[1])) {
-                        hasSubstring += ", " + s;
+                        if (hasSubstring.equals("")) {
+                            hasSubstring += s;
+                        }
+                        else {
+                            hasSubstring += ", " + s;
+                        }
                     } 
                 }
                 return String.format("The following words contain %s: \n", parameters[1]) + hasSubstring;
